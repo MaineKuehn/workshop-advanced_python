@@ -36,7 +36,7 @@ class TextDisplay(object):
         self._show_array(gol, title=title)
 
     def _show_array(self, gol_array, title):
-        sys.stdout.write("\x1b[2J\x1b[H")
+        sys.stdout.write("\x1b[H")
         draw_width = min(self.width, gol_array.width)
         print('-', title, '-' * max(draw_width - 3 - len(title), 0))
         for h in range(min(self.height, gol_array.height)):
