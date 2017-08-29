@@ -63,5 +63,5 @@ if __name__ == '__main__':
         ],
         keywords=package_about['__keywords__'],
         # unit tests
-        test_suite='gksol_unittests',
+        test_suite='gksol.gksol_unittests',
     )
