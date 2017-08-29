@@ -7,7 +7,7 @@ cdef class CythonGol(object):
     Game of Life implemented via Cython
 
     :param board: the initial state of the board
-    :type board: :py:class:`gksol.boards.PaddedBoard`
+    :type board: :py:class:`gksol.boards.PaddedBoard` or List[List[int]]
 
     .. describe:: gol[n]
 
