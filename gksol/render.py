@@ -5,6 +5,11 @@ import atexit
 
 
 class NullDisplay(object):
+    """
+    Dummy renderer for a Game of Life board or nested list
+
+    This renderer does nothing.
+    """
     def __init__(self, *args):
         pass
 
@@ -13,6 +18,16 @@ class NullDisplay(object):
 
 
 class TextDisplay(object):
+    """
+    Renderer for a Game of Life board or nested list for text terminals
+
+    :param height: the maximum height to display the board
+    :type height: int
+    :param width: the maximum width to display the board
+    :type width: int
+
+    This renderer requires ANSII support by the terminal.
+    """
     def __init__(self, height=128, width=128):
         self.height = height
         self.width = width
@@ -31,6 +46,16 @@ class TextDisplay(object):
 
 
 class NativeMPLDisplay(object):
+    """
+    Renderer for a Game of Life board or nested list for text terminals
+
+    :param height: the maximum height to display the board
+    :type height: int
+    :param width: the maximum width to display the board
+    :type width: int
+
+    This renderer requires :py:mod:`matplotlib`.
+    """
     def __init__(self, height=640, width=640):
         from matplotlib import pyplot
         self.height = height
@@ -55,6 +80,16 @@ class NativeMPLDisplay(object):
 
 
 class CPyMPLDisplay(cpy2py.TwinObject):
+    """
+    Renderer for a Game of Life board or nested list for text terminals
+
+    :param height: the maximum height to display the board
+    :type height: int
+    :param width: the maximum width to display the board
+    :type width: int
+
+    This renderer requires :py:mod:`matplotlib` and :py:mod:`cpy2py`.
+    """
     __twin_id__ = 'python3'
 
     def __init__(self, height=640, width=640):
