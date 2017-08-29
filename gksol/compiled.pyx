@@ -31,6 +31,9 @@ cdef class CythonGol(object):
                     next_board[h][w] = 1
                 elif neighbours == 2:
                     next_board[h][w] = self._board[h][w]
+        for line_idx in range(self.height):
+            free(next_board[line_idx])
+        free(self._board)
         self._board = next_board
 
     cdef _count_neighbours(self, const int h, const int w):
@@ -57,5 +60,8 @@ cdef class CythonGol(object):
 
     def __getitem__(self, index):
         return [self._board[index][row_index] for row_index in range(self.width)]
+
+    def __dealloc__(self):
+        free(self._board)
 
 GOL = CythonGol
