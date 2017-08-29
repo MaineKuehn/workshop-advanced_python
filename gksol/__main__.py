@@ -56,13 +56,14 @@ def main(options):
     display = getattr(render, options.renderer)()
     display.show(gol)
     start_time = time.time()
-    for generation in range(options.generations):
-        time.sleep(options.delay)
+    _delay, _generations, _every = options.delay, options.generations, options.every
+    for generation in range(_generations):
+        time.sleep(_delay)
         gol.advance()
-        if generation % options.every == 0:
-            display.show(gol, title=str(generation))
+        if generation % _every == 0:
+            display.show(gol, title='%d/%d %6.3f' % (generation, _generations, (100 / (time.time() - start_time))))
         if generation % 100 == 99:
-            print(100 / (time.time() - start_time), 'FPS')
+            print('%10d' % generation, '%6.3f' % (100 / (time.time() - start_time)), 'FPS')
             start_time = time.time()
 
 
