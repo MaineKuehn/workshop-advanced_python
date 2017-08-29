@@ -3,12 +3,12 @@ from collections import abc as collection_abc
 
 
 class PaddedBoard(object):
-    def __init__(self, board, *, top=0, bottom=0, left=0, right=0):
+    def __init__(self, board, *, border=0, top=0, bottom=0, left=0, right=0):
         self.board = board
-        self.top = top
-        self.bottom = bottom
-        self.left = left
-        self.right = right
+        self.top = top + border
+        self.bottom = bottom + border
+        self.left = left + border
+        self.right = right + border
         self._board_height = len(board)
         try:
             self._board_width = len(board[0])
