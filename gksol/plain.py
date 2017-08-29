@@ -3,7 +3,7 @@ class ListGol(object):
     Game of Life implemented via lists
 
     :param board: the initial state of the board
-    :type board: :py:class:`gksol.boards.PaddedBoard`
+    :type board: :py:class:`gksol.boards.PaddedBoard` or List[List[int]]
 
     .. describe:: gol[n]
 
@@ -31,13 +31,13 @@ class ListGol(object):
         if h == 0:
             h_indizes = (0, 1)
         elif h == self.height - 1:
-            h_indizes = (-2, -1)
+            h_indizes = (h - 1, h)
         else:
             h_indizes = (h - 1, h, h + 1)
         if w == 0:
             w_indizes = (0, 1)
         elif w == self.width - 1:
-            w_indizes = (-2, -1)
+            w_indizes = (w - 1, w)
         else:
             w_indizes = (w - 1, w, w + 1)
         return sum(
