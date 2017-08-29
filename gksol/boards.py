@@ -40,6 +40,10 @@ class PaddedBoard(object):
 
     def __len__(self):
         return self.height
+    
+    def __str__(self):
+        return '[%s]' % ', '.join(str(line) for line in self),
+        ))
 
 
 class PaddedRow(collection_abc.Sequence):
@@ -91,3 +95,9 @@ class FillerRow(collection_abc.Sequence):
         if -self._length < item < self._length:
             return 0
         raise IndexError('list index out of range')
+    
+    def __repr__(self):
+        return "%s(%d)" % (self.__class__.__name__, self._length)
+
+    def __str__(self):
+        return '[%s]' % (("0, " * self._length)[:-2])
