@@ -3,6 +3,16 @@ from cpython.mem cimport PyMem_Malloc as malloc, PyMem_Free as free
 
 
 cdef class CythonGol(object):
+    """
+    Game of Life implemented via Cython
+
+    :param board: the initial state of the board
+    :type board: :py:class:`gksol.boards.PaddedBoard`
+
+    .. describe:: gol[n]
+
+        Return the ``n``'th row of the board as a list-like view.
+    """
     cdef int ** _board
     cdef public int height
     cdef public int width
@@ -17,6 +27,7 @@ cdef class CythonGol(object):
                 self._board[line_idx][row_idx] = 1 if board[line_idx][row_idx] else 0
 
     cpdef advance(self):
+        """Advance the board to the next generation"""
         # most of the board will be empty, so initialize to that
         cdef int ** next_board = <int**>malloc(self.height * sizeof(int*))
         for line_idx in range(self.height):

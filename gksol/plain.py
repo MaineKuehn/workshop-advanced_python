@@ -1,10 +1,21 @@
 class ListGol(object):
+    """
+    Game of Life implemented via lists
+
+    :param board: the initial state of the board
+    :type board: :py:class:`gksol.boards.PaddedBoard`
+
+    .. describe:: gol[n]
+
+        Return the ``n``'th row of the board as a list-like view.
+    """
     def __init__(self, board):
         self._board = board
         self.height = len(board)
         self.width = len(board[0]) if board else 0
 
     def advance(self):
+        """Advance the board to the next generation"""
         # most of the board will be empty, so efficiently initialize to that
         next_board = [[0] * self.width for _ in range(self.height)]
         for w in range(self.width):

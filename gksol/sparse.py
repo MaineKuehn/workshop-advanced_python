@@ -1,10 +1,21 @@
 class SetGol(object):
+    """
+    Game of Life implemented via sets
+
+    :param board: the initial state of the board
+    :type board: :py:class:`gksol.boards.PaddedBoard`
+
+    .. describe:: gol[n]
+
+        Return the ``n``'th row of the board as a list-like view.
+    """
     def __init__(self, board):
         self.height = board.height
         self.width = board.width
         self.board = {(h, w) for h in range(self.height) for w in range(self.width) if board[h][w]}
 
     def advance(self):
+        """Advance the board to the next generation"""
         next_board = set()
         for cell in self.board:
             neighbours = self._neighbour_cells(cell)
