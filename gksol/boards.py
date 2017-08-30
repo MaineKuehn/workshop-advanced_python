@@ -42,8 +42,7 @@ class PaddedBoard(object):
         return self.height
     
     def __str__(self):
-        return '[%s]' % ', '.join(str(line) for line in self),
-        ))
+        return '[%s]' % ', '.join(str(line) for line in self)
 
 
 class PaddedRow(collection_abc.Sequence):
