@@ -1,4 +1,4 @@
-# Exercise 3
+# Exercise 2
 
 ## Love & Hate & Cython
 

@@ -19,7 +19,7 @@
 
 * Add file `setup.py` next to your script
 
-        from setuptools import setup
+        from setuptools import setup, find_packages
         if __name__ == '__main__':
             setup(
                 name='gol',
