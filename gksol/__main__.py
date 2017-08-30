@@ -109,7 +109,7 @@ CLI_SHOW.add_argument(
 CLI_SHOW.add_argument(
     '-e', '--every',
     help="Show only every e'th frame",
-    default=0,
+    default=1,
     type=int,
 )
 
