@@ -50,6 +50,8 @@
 
 * Type hints/inference, code completion, formatting, consistency tests 
 
-* Seriously, use one
-
+* Seriously, use one!
     * No excuse for errors an IDE would warn you about
+
+* Can still use an interpreter in addition 
+    * Like, say, ``ipython``

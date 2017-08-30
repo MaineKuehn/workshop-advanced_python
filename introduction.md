@@ -24,8 +24,10 @@ Pragmatism
 
 ## Disclaimer
 
-- "Advanced" is measured by homeomorphic endofunctors mapping submanifolds of a Hilbert space
+- *Advanced* is measured by homeomorphic endofunctors mapping submanifolds of a Hilbert space
 
 - We can scale difficulty level as needed
 
 - **Ask/Inquire/Interact**
+
+- ```goto``` https://mainekuehn.github.io/workshop-advanced_python/

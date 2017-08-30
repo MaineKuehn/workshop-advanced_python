@@ -1,0 +1,7 @@
+# Exercise II
+
+## Pack it like a `b'x\x9c\x0b\xc8\xcfI,\xca\xcfLQ\x08\xc8L.-)J\x05\x004/\x067'`
+
+--
+
+## 

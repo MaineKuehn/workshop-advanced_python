@@ -1,25 +1,19 @@
 # Cython + CPython
 
 * CPython: Python reference implementation
-
     * Implemented in C
-    * Really ugly
-
+    * Extension: Really ugly
 * Cython: Python to C source code compiler
-
     * Integrates with CPython implementation
-    * Less ugly
+    * Extensions: Slightly ugly
 
 --
 
 ## CPython is slow
 
 * 2+1 scope types for names:
-
     * Function local: indexed immutable array
-    
     * Module: string-indexed mutable hashtable
-    
     * Attributes: string-indexed mutable hashtable
 
 --
@@ -48,19 +42,18 @@
 ## CPython is slow
 
 * Any object is mutable
-
 * Anything is an object
-
 * Any non-local name can be changed at any time
 
 
     import builtins
-    my_types = builtins.float
+    my_types = builtins.float, builtins.int, builtins.bool
     
     def my_float(val):
         print(val)
-        return _float(val)
+        return random.choice(my_types)(val)
     
+    my_types = my_types[:2]
     builtins.float = my_float
 
 --
@@ -68,9 +61,7 @@
 ## CPython is slow
 
 * Anything must be looked up at runtime
-
 * No compile time optimisation
-
 * Lookups are not trivial
 
 
@@ -79,14 +70,18 @@
 
 --
 
+## CPython is slow
+
+* Because it does stuff for you...
+* ...that you sometimes do not need
+
+--
+
 ## Enter Cython
 
 * Statically compile Python code to C code
-
 * Disallows some dynamic features
-
-* Opt-out of some dynamic features
-
+* Opt-out of many dynamic features
 * `gcc`/`clang`/... to statically compile C code to plugin library
 
 --
@@ -94,7 +89,6 @@
 ## Cython is not slow
 
 * Use CPython at C level
-
 * Short-circuit special methods, builtins, ...
 
 
