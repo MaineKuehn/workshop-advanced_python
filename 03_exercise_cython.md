@@ -13,7 +13,7 @@
 * Cython can compile your existing class
     * Will use a hook in `gksol` for compiling
     * If you are interested: `import pyximport`
-  
+
 --
 
 ## Easy mode
